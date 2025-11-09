@@ -1,0 +1,19 @@
+-- these can be ignored if you are using the studio plugin
+option ClientOutput = "src/shared/net.luau"
+option ServerOutput = "src/server/net.luau"
+ 
+scope Sounds {
+    event CallSound {
+        from: Server,
+        Type: Reliable,
+        Call: SingleSync,
+        Data: (string, Instance(BasePart)?)
+    }
+
+    event CallSoundFromClient {
+        from: Client,
+        Type: Reliable,
+        Call: SingleSync,
+        Data: (string, Instance(BasePart)?)
+    }
+}
