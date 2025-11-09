@@ -1,7 +1,7 @@
 local process = require("@lune/process")
 local fs = require("@lune/fs")
 
-local DEVIDER = "-------- :: Generated stuff below :: -----------------"
+local SEPARATOR = "-------- :: Generated stuff below :: -----------------"
 
 local outputPath: string = process.args[1] or "Types"
 
@@ -92,11 +92,11 @@ local function mergeWithWrittenCode(path: string, generatedContent: string)
 
     local code = ""
 
-    local codeBefore = fs.readFile(path):match(`(.-){DEVIDER}`)
+    local codeBefore = fs.readFile(path):match(`(.-){SEPARATOR}`)
     if codeBefore then
-        code ..= codeBefore .. "" .. DEVIDER .. "\n\n"
+        code ..= codeBefore .. "" .. SEPARATOR .. "\n\n"
     else
-        code ..= "\n\n".. DEVIDER .. "\n\n"
+        code ..= "\n\n".. SEPARATOR .. "\n\n"
     end
 
     return code..generatedContent.."return {}"
